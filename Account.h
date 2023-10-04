@@ -1,0 +1,40 @@
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+#include "Customer.h"
+#include <string>
+using namespace std;
+
+
+class Account : public Customer {
+
+    protected:
+        int accountNumber;
+        int bsb;
+        float balance;
+        float pay;
+
+    public:
+
+        Account();
+        Account(int accountNumber);
+
+        int getAccountNum();
+        void setAccountNum(int accountNumber);
+
+        int getBSB();
+        void setBSB(int bsb);
+
+        float getBalance();
+        void setBalance(float balance);
+
+        float getPay();
+        void setPay(float pay);
+
+        void showInfo();
+
+
+};
+
+
+#endif
