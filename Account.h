@@ -17,7 +17,7 @@ class Account : public Customer {
     public:
 
         Account();
-        Account(int accountNumber);
+        Account(float balance);
 
         int getAccountNum();
         void setAccountNum(int accountNumber);
