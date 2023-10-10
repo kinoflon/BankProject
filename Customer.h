@@ -12,19 +12,23 @@ class Customer : public Person {
         string bank;
         float loan;
         float creditScore;
+        Account* account;
 
     public:
         Customer();
+        Customer(string name);
         Customer(int customerId);
+        
+        void setAccount(Account* account);
 
-        void showInfo();
+        void showInfo() const;
 
-        int getID();
+        int getID() const;
         void setID(int customerId);
-        string getBank();
+        string getBank() const;
         void setBank(string bank);
-        float getCreditScore();
-        float getLoan();
+        float getCreditScore() const;
+        float getLoan() const;
 
 };
 

@@ -15,10 +15,10 @@ class Person {
         Person();
         Person(string name);
 
-        virtual void showInfo();
+        virtual void showInfo() const;
 
-        string getName();
-        float getWage();
+        string getName() const;
+        float getWage() const;
         void setName(string name);
         void setWage(float wage);
 
