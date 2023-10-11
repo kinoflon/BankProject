@@ -12,14 +12,14 @@ class Customer : public Person {
         string bank;
         float loan;
         float creditScore;
-        Account* account;
+        Customer* account;
 
     public:
         Customer();
         Customer(string name);
         Customer(int customerId);
         
-        void setAccount(Account* account);
+        void setAccount(Customer* account);
 
         void showInfo() const;
 

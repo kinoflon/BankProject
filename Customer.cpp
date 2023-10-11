@@ -24,7 +24,7 @@ Customer::Customer(string name) {
     account = nullptr;
 }
 
-void Customer::setAccount(Account* account) {
+void Customer::setAccount(Customer* account) {
     this->account = account;
 }
 

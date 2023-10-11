@@ -8,13 +8,13 @@ using namespace std;
 Bank::Bank() {
     name = "";
     capacity = 0;
-    numAccounts = 0;
+    numAccounts = 1;
 }
 
 Bank::Bank(string name) {
     this->name = name;
     capacity = 0;
-    numAccounts = 0;
+    numAccounts = 1;
 }
 
 void Bank::generatePay() {

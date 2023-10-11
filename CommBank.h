@@ -3,16 +3,26 @@
 
 #include <string>
 #include "Bank.h"
-#include "Customer.h"
+#include "Account.h"
 
 class CommBank : public Bank {
 
     protected:
-        Customer** newAccount;
+        Account** newAccount;
         float interestRate;
+        float loanOwed;
     
     public:
         CommBank();
+        CommBank(float loanOwed);
+        
+        void generatePay();
+        float generateLoan(float loan, float weeklyPay);
+        void updateLoan(float amount);
+        void generateInterest();
+
+        ~CommBank();
+
 
 };
 
