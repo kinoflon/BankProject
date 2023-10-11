@@ -1,4 +1,5 @@
 #include "Customer.h"
+#include "Account.h"
 
 #include <iostream>
 #include <string>
@@ -11,6 +12,20 @@ Customer::Customer() {
     bank = "";
     loan = 0;
     creditScore = 0;
+    account = nullptr;
+}
+
+Customer::Customer(string name) {
+    this->name = name;
+    customerId = 0;
+    bank = "";
+    loan = 0;
+    creditScore = 0;
+    account = nullptr;
+}
+
+void Customer::setAccount(Account* account) {
+    this->account = account;
 }
 
 Customer::Customer(int customerId) {
@@ -18,9 +33,10 @@ Customer::Customer(int customerId) {
     bank = "";
     loan = 0;
     creditScore = 0;
+    account = nullptr;
 }
 
-int Customer::getID() {
+int Customer::getID() const {
     return customerId;
 }
 
@@ -28,7 +44,7 @@ void Customer::setID(int customerId) {
     this->customerId = customerId;
 }
 
-string Customer::getBank() {
+string Customer::getBank() const {
     return bank;
 }
 
@@ -36,15 +52,15 @@ void Customer::setBank(string bank) {
     this->bank = bank;
 }
 
-float Customer::getCreditScore() {
+float Customer::getCreditScore() const {
     return creditScore;
 }
 
-float Customer::getLoan() {
+float Customer::getLoan() const {
     return loan;
 }
 
-void Customer::showInfo() {
+void Customer::showInfo() const {
     cout << "Customer info:" << endl;
     cout << "name: " << name << endl;
     cout << "wage: " << wage << endl;

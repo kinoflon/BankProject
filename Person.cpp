@@ -14,11 +14,11 @@ Person::Person(string name) {
     wage = 0;
 }
 
-string Person::getName() {
+string Person::getName() const {
     return name;
 }
 
-float Person::getWage() {
+float Person::getWage() const {
     return wage;
 }
 
@@ -30,7 +30,7 @@ void Person::setWage(float wage) {
     this->wage = wage;
 }
 
-void Person::showInfo() {
+void Person::showInfo() const {
     cout << "Person info:" << endl;
     cout << "name: " << name << endl;
     cout << "wage: " << wage << endl;
