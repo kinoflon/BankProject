@@ -14,6 +14,8 @@ class Account : public Customer {
         float balance;
         float pay;
 
+        float loanOwed;
+
     public:
 
         Account();
@@ -33,6 +35,7 @@ class Account : public Customer {
 
         void showInfo();
 
+        void setLoan(float newLoan);
 
 };
 

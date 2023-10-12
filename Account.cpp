@@ -63,3 +63,7 @@ void Account::showInfo() {
     cout << "balance: " << balance << endl;
     cout << "pay: " << pay << endl;
 }
+
+void Account::setLoan(float newLoan) {
+    loan = loan + newLoan;
+}

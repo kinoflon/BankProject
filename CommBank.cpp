@@ -9,39 +9,105 @@ using namespace std;
 CommBank::CommBank() {
     name = "CommBank";
     interestRate = 0.0624;
-    loanOwed = 0;
     newAccount = new Account*[numAccounts];
+    capacity = 0;
 }
 
-CommBank::CommBank(float loanOwed) {
+CommBank::CommBank(float capacity) {
     name = "CommBank";
     interestRate = 0.0624;
-    this->loanOwed = loanOwed;
     newAccount = new Account*[numAccounts];
+    this->capacity = capacity;
 }
 
-void CommBank::generatePay() {
+void CommBank::generatePay(int accountNumber) {
 
-    float balance = newAccount[0]->getBalance();
-    float pay = newAccount[0]->getPay();
+    int whichAccount = accountNumber;
+
+    int newBalance;
+
+    if(numAccounts > 1){
+
+        float balance = newAccount[whichAccount]->getBalance();
+        float pay = newAccount[whichAccount]->getPay();
+
+        newBalance = balance + pay;
+
+        newAccount[whichAccount]->setBalance(newBalance);
+    }
+    else {
+
+        float balance = newAccount[whichAccount]->getBalance();
+        float pay = newAccount[whichAccount]->getPay();
+
+        newBalance = balance + pay;
+
+        newAccount[whichAccount]->setBalance(newBalance);
+    }
+}
+
+float CommBank::generateLoan(float loan, int accountNumber) {
+
+    int whichAccount = accountNumber;
+    float newLoan;
+    float newBalance;
+
+    if(numAccounts > 1) {
+        float balance = newAccount[whichAccount]->getBalance();
+        float loanOwed = newAccount[whichAccount]->getLoan();
+        newLoan = loanOwed + loan;
+        newBalance = balance + loan;
+
+        newAccount[whichAccount]->setBalance(newBalance);
+        newAccount[whichAccount]->setLoan(newLoan);
+    }
+    else {
+        float balance = newAccount[whichAccount]->getBalance();
+        float loanOwed = newAccount[whichAccount]->getLoan();
+        newLoan = loanOwed + loan;
+        newBalance = balance + loan;
+
+        newAccount[whichAccount]->setBalance(newBalance);
+        newAccount[whichAccount]->setLoan(newLoan);
+    }
+}
+
+void CommBank::updateLoan(float amount, int accountNumber) {
+
+    int whichAccount = accountNumber;
+    float newBalance;
+    float newLoan;
+
+    float balance = newAccount[whichAccount]->getBalance();
+    float loanOwed = newAccount[whichAccount]->getLoan();
+
+    newLoan = loanOwed - amount;
+    newBalance = balance - amount;
+
+    newAccount[whichAccount]->setBalance(newBalance);
+    newAccount[whichAccount]->setLoan(newLoan);
     
-    balance = balance + pay;
 }
 
-float CommBank::generateLoan(float loan, float weeklyPay) {
+void CommBank::generateInterest(float weeklyPay) {
     
-    float balance = newAccount[0]->getBalance();
-    float pay = newAccount[0]->getPay();
+    float increaseInPay;
+    
+    cout << "The base weekly pay is " << weeklyPay << endl;
 
-    loanOwed = loan;
-    balance = balance + loan;
+    increaseInPay = (weeklyPay * interestRate);
+
+    cout << "Each week, the pay will increase by" << increaseInPay << endl;
 }
 
-void CommBank::updateLoan(float amount) {
-    loanOwed = loanOwed - amount;
-}
+void CommBank::addAccount(Account** extraAccount){
 
-void CommBank::generateInterest() {
+    int temp = numAccounts;
+    numAccounts++;
+
+    copy(newAccount, newAccount + min(temp, numAccounts), newAccount);
+
+    newAccount[numAccounts]->getBalance();
 
 }
 

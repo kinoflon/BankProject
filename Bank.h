@@ -10,6 +10,7 @@ class Bank {
         string name;
         float capacity;
         int numAccounts;
+
     public:
         Bank();
         Bank(string name);

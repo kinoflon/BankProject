@@ -10,16 +10,17 @@ class CommBank : public Bank {
     protected:
         Account** newAccount;
         float interestRate;
-        float loanOwed;
     
     public:
         CommBank();
-        CommBank(float loanOwed);
+        CommBank(float capacity);
         
-        void generatePay();
-        float generateLoan(float loan, float weeklyPay);
-        void updateLoan(float amount);
-        void generateInterest();
+        void generatePay(int accountNumber);
+        float generateLoan(float loan, int accountNumber);
+        void updateLoan(float amount, int accountNumber);
+        void generateInterest(float weeklyPay);
+
+        void addAccount(Account** extraAccount);
 
         ~CommBank();
 
