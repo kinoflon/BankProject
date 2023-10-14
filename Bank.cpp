@@ -17,9 +17,13 @@ Bank::Bank(string name) {
     numAccounts = 1;
 }
 
-void Bank::generatePay() {
-    return;
+string Bank::getBank() const {
+    return name;
 }
+
+// void Bank::generatePay() {
+//     return;
+// }
 
 float Bank::generateLoan() {
     return;

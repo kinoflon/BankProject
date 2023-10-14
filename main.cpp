@@ -47,7 +47,7 @@ int main() {
 
     // Create a customer
     Customer customer(person.getName());
-    customer.setBank(selectedBank->getName());
+    customer.setBank(selectedBank->getBank());
 
     cout << "You are now a customer of " << customer.getBank() << endl;
 
@@ -56,7 +56,7 @@ int main() {
     cout << "Enter the loan amount you want to take out: ";
     cin >> loanAmount;
 
-    customer.setLoan(loanAmount);
+    customer.getLoan();
 
     cout << "You have taken a loan of $" << customer.getLoan() << endl;
 
