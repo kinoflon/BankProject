@@ -1,41 +1,85 @@
 #include <iostream>
-#include <vector>
-#include "Account.h"
-#include "Customer.h"
+#include <string>
 #include "Person.h"
+#include "Bank.h"
+#include "CommBank.h"
+#include "ANZ.h"
+#include "NAB.h"
+#include "Westpac.h"
+#include "Customer.h"
+#include "Account.h"
 
 using namespace std;
 
 int main() {
-    Customer customer1("Lysander Tonkin");
-    Customer customer2("Cheese Man");
+    // Create a person and ask for their name
+    string name;
+    cout << "Enter your name: ";
+    getline(cin, name);
 
-    customer1.setID(1);
-    customer1.setBank("Bank A");
-    customer1.setWage(50000);
-    customer1.setLoan(1000);
-    customer1.setCreditScore(750);
+    Person person(name);
 
-    customer2.setID(2);
-    customer2.setBank("Bank B");
-    customer2.setWage(60000);
-    customer2.setLoan(500);
-    customer2.setCreditScore(800);
+    cout << "Welcome, " << person.getName() << "!" << endl;
 
-    Account account1(12345, 6789, 1000);
-    Account account2(54321, 9876, 2000);
+    // Let the person pick a bank
+    cout << "Choose a bank: " << endl;
+    cout << "1. CommBank" << endl;
+    cout << "2. ANZ" << endl;
 
-    customer1.addAccount(account1);
-    customer2.addAccount(account2);
+    int bankChoice;
+    cout << "Enter the number of the bank you want to choose: ";
+    cin >> bankChoice;
 
-    account1.deposit(500);
-    account2.withdraw(300);
+    Bank* selectedBank;
 
-    customer1.showInfo();
-    customer2.showInfo();
+    if (bankChoice == 1) {
+        selectedBank = new CommBank();
+    } else if (bankChoice == 2) {
+        selectedBank = new ANZ();
+    } else if (bankChoice == 3) {
+        selectedBank = new NAB();
+    } else if (bankChoice == 4) {
+        selectedBank = new Westpac();
+    } else {
+        cout << "Invalid bank choice. Exiting." << endl;
+        return 1;
+    }
+
+    // Create a customer
+    Customer customer(person.getName());
+    customer.setBank(selectedBank->getName());
+
+    cout << "You are now a customer of " << customer.getBank() << endl;
+
+    // Take out a loan
+    float loanAmount;
+    cout << "Enter the loan amount you want to take out: ";
+    cin >> loanAmount;
+
+    customer.setLoan(loanAmount);
+
+    cout << "You have taken a loan of $" << customer.getLoan() << endl;
+
+    // Transfer money from pay into the account
+    float weeklyPay;
+    cout << "Enter your weekly pay: $";
+    cin >> weeklyPay;
+
+    Account account;
+    account.setBalance(weeklyPay);
+
+    cout << "Your account balance is $" << account.getBalance() << endl;
+
+    // Display customer and account information
+    customer.showInfo();
+    account.showInfo();
+
+    // Clean up allocated memory
+    delete selectedBank;
 
     return 0;
 }
+
 
 
 

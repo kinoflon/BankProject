@@ -18,7 +18,6 @@ class Bank {
         virtual void generatePay() = 0;
         virtual float generateLoan();
         virtual void updateLoan();
-
 };
 
 #endif
