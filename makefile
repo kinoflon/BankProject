@@ -17,7 +17,7 @@ OBJS = $(SRCS:.cpp=.o)
 # Compile the executable
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
-
+	
 # Compile source files to object files
 %.o: %.cpp $(HDRS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -25,3 +25,6 @@ $(TARGET): $(OBJS)
 # Clean up compiled files
 clean:
 	rm -f $(OBJS) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)

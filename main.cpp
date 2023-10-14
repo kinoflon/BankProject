@@ -26,7 +26,7 @@ int main() {
     cout << "1. CommBank" << endl;
     cout << "2. ANZ" << endl;
     cout << "3. NAB" << endl;
-    cout << "3. Westpac" << endl;
+    cout << "4. Westpac" << endl;
 
     int bankChoice;
     cout << "Enter the number of the bank you want to choose: ";
