@@ -26,7 +26,7 @@ string Bank::getBank() const {
 // }
 
 float Bank::generateLoan() {
-    return;
+    return 0;
 }
 
 void Bank::updateLoan() {

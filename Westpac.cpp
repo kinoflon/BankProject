@@ -54,7 +54,7 @@ float Westpac::generateLoan(float loan, int accountNumber) {
 
     if(numAccounts > 1) {
         float balance = newAccount[whichAccount]->getBalance();
-        float loanOwed = newAccount[whichAccount]->getLoan();
+        float loanOwed = newAccount[whichAccount]->getLoan(0);
         newLoan = loanOwed + loan;
         newBalance = balance + loan;
 
@@ -63,7 +63,7 @@ float Westpac::generateLoan(float loan, int accountNumber) {
     }
     else {
         float balance = newAccount[whichAccount]->getBalance();
-        float loanOwed = newAccount[whichAccount]->getLoan();
+        float loanOwed = newAccount[whichAccount]->getLoan(0);
         newLoan = loanOwed + loan;
         newBalance = balance + loan;
 
@@ -79,7 +79,7 @@ void Westpac::updateLoan(float amount, int accountNumber) {
     float newLoan;
 
     float balance = newAccount[whichAccount]->getBalance();
-    float loanOwed = newAccount[whichAccount]->getLoan();
+    float loanOwed = newAccount[whichAccount]->getLoan(0);
 
     newLoan = loanOwed - amount;
     newBalance = balance - amount;

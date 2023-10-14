@@ -10,11 +10,12 @@ class Customer : public Person {
     protected:
         int customerId;
         string bank;
-        float loan;
         float creditScore;
         Customer* account;
+    private:
 
     public:
+        mutable float loan = 0;
         Customer();
         Customer(string name);
         Customer(int customerId);
@@ -28,7 +29,7 @@ class Customer : public Person {
         string getBank() const;
         void setBank(string bank);
         float getCreditScore() const;
-        float getLoan() const;
+        float getLoan(float loanAmount) const;
 
 };
 

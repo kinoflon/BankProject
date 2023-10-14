@@ -25,6 +25,8 @@ int main() {
     cout << "Choose a bank: " << endl;
     cout << "1. CommBank" << endl;
     cout << "2. ANZ" << endl;
+    cout << "3. NAB" << endl;
+    cout << "3. Westpac" << endl;
 
     int bankChoice;
     cout << "Enter the number of the bank you want to choose: ";
@@ -56,9 +58,7 @@ int main() {
     cout << "Enter the loan amount you want to take out: ";
     cin >> loanAmount;
 
-    customer.getLoan();
-
-    cout << "You have taken a loan of $" << customer.getLoan() << endl;
+    cout << "You have taken a loan of $" << customer.getLoan(loanAmount) << endl;
 
     // Transfer money from pay into the account
     float weeklyPay;
