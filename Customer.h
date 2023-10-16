@@ -23,7 +23,7 @@ class Customer : public Person {
         
         void setCustomerID(int id);
         void setAccount(Account* account);
-        Account* getAccount();
+        Account* getAccount() const;
         void showInfo() const;
 
         int getID() const;

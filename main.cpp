@@ -217,12 +217,22 @@ int main() {
                 for (const auto& customer : customers) {
                     if (customer.getID() == customerId) {
                         customer.showInfo();
+                        
+                        // Check if the customer has an associated account
+                        Account* account = customer.getAccount();
+                        if (account != nullptr) {
+                            account->showInfo();
+                        } else {
+                            cout << "This customer does not have an associated account." << endl;
+                        }
+                        
                         break;
                     }
                 }
 
                 break;
             }
+
             case 4:
                 cout << "Exiting the program." << endl;
                 return 0;

@@ -69,9 +69,10 @@ float Customer::getLoan(float loanAmount) const {
     return loan;
 }
 
-Account* Customer::getAccount() {
+Account* Customer::getAccount() const {
     return account;
 }
+
 
 void Customer::showInfo() const {
     cout << "Customer info:" << endl;

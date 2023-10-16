@@ -71,7 +71,7 @@ bool Account::withdraw(float amount) {
 }
 
 void Account::showInfo() {
-    cout << "Customer info:" << endl;
+    cout << "Account info:" << endl;
     cout << "name: " << name << endl;
     cout << "wage: " << wage << endl;
     cout << "customer ID: " << customerId << endl;
