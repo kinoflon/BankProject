@@ -50,6 +50,26 @@ void Account::setPay(float pay) {
     this->pay = pay;
 }
 
+void Account::deposit(float amount) {
+    if (amount > 0) {
+        balance += amount;
+        cout << "Deposit successful. New balance: $" << balance << endl;
+    } else {
+        cout << "Invalid deposit amount." << endl;
+    }
+}
+
+bool Account::withdraw(float amount) {
+    if (amount > 0 && balance >= amount) {
+        balance -= amount;
+        cout << "Withdrawal successful. New balance: $" << balance << endl;
+        return true;
+    } else {
+        cout << "Insufficient balance or invalid withdrawal amount." << endl;
+        return false;
+    }
+}
+
 void Account::showInfo() {
     cout << "Customer info:" << endl;
     cout << "name: " << name << endl;

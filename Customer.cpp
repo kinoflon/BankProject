@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 Customer::Customer() {
     customerId = 0;
     bank = "";
@@ -24,7 +23,7 @@ Customer::Customer(string name) {
     account = nullptr;
 }
 
-void Customer::setAccount(Customer* account) {
+void Customer::setAccount(Account* account) { // Corrected the parameter type to Account*
     this->account = account;
 }
 
@@ -68,6 +67,10 @@ float Customer::getCreditScore() const {
 float Customer::getLoan(float loanAmount) const {
     loan += loanAmount;
     return loan;
+}
+
+Account* Customer::getAccount() {
+    return account;
 }
 
 void Customer::showInfo() const {

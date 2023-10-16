@@ -21,6 +21,9 @@ class Account : public Customer {
         Account();
         Account(float balance);
 
+        void deposit(float amount);
+        bool withdraw(float amount);
+
         int getAccountNum();
         void setAccountNum(int accountNumber);
 

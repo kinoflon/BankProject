@@ -5,14 +5,15 @@
 #include <string>
 using namespace std;
 
-class Customer : public Person {
+// Forward declaration of the Account class
+class Account;
 
+class Customer : public Person {
     protected:
         int customerId;
         string bank;
         float creditScore;
-        Customer* account;
-    private:
+        Account* account; // Use the forward-declared Account*
 
     public:
         mutable float loan = 0;
@@ -20,9 +21,9 @@ class Customer : public Person {
         Customer(string name);
         Customer(int customerId);
         
-        void setCustomerID(int id); // New method to set customer ID
-        void setAccount(Customer* account);
-
+        void setCustomerID(int id);
+        void setAccount(Account* account);
+        Account* getAccount();
         void showInfo() const;
 
         int getID() const;
@@ -31,7 +32,6 @@ class Customer : public Person {
         void setBank(string bank);
         float getCreditScore() const;
         float getLoan(float loanAmount) const;
-
 };
 
 #endif

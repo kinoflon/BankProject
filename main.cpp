@@ -144,7 +144,7 @@ int main() {
                 cin >> customerID;
 
                 bool customerExists = false;
-                for (const auto& customer : customers) {
+                for (auto& customer : customers) {
                     if (customer.getName() == name && customer.getBank() == bankName) {
                         customerExists = true;
                         break;
@@ -155,13 +155,18 @@ int main() {
                     cout << "A customer with the same name already exists in " << bankName << "." << endl;
                 } else {
                     Customer customer(name);
-                    customer.setCustomerID(customerID); // Set the customer ID
-                    customer.setBank(bankName); // Set Bank Name
+                    customer.setCustomerID(customerID);
+                    customer.setBank(bankName);
+                    
+                    // Create a dynamic Account object and pass its pointer to setAccount
+                    Account* account = new Account();
+                    customer.setAccount(account);
+                    
                     customers.push_back(customer);
                     cout << "Customer account created successfully." << endl;
                 }
                 break;
-            }
+                    }
             case 2: {
                 cout << "Enter customer ID: ";
                 int customerId;
@@ -190,25 +195,20 @@ int main() {
                     cout << "Enter amount to deposit: ";
                     float amount;
                     cin >> amount;
-                    //customer->deposit(amount);
-                    //Honestly not sure how to make this work
-                    cout << "Deposit successful." << endl;
+                    customer->getAccount()->deposit(amount);
                 } else if (transactionType == 2) {
                     cout << "Enter amount to withdraw: ";
                     float amount;
                     cin >> amount;
-                    //if (customer->withdraw(amount)) {
-                    //same here
-                    //    cout << "Withdrawal successful." << endl;
-                    //} else {
-                    //    cout << "Insufficient balance." << endl;
-                    //}
+                    customer->getAccount()->withdraw(amount);
                 } else {
                     cout << "Invalid transaction type." << endl;
                 }
 
                 break;
             }
+
+
             case 3: {
                 cout << "Enter customer ID: ";
                 int customerId;
