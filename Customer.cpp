@@ -11,7 +11,6 @@ Customer::Customer() {
     customerId = 0;
     bank = "";
     // loan = 0;
-    creditScore = 0;
     account = nullptr;
 }
 
@@ -20,7 +19,6 @@ Customer::Customer(string name) {
     customerId = 0;
     bank = "";
     // loan = 0;
-    creditScore = 0;
     account = nullptr;
 }
 
@@ -32,7 +30,6 @@ Customer::Customer(int customerId) {
     this->customerId = customerId;
     bank = "";
     loan = 0;
-    creditScore = 0;
     account = nullptr;
 }
 
@@ -52,10 +49,6 @@ void Customer::setBank(string bank) {
     this->bank = bank;
 }
 
-float Customer::getCreditScore() const {
-    return creditScore;
-}
-
 float Customer::getLoan(float loanAmount) const {
     loan += loanAmount;
     return loan;
@@ -68,5 +61,4 @@ void Customer::showInfo() const {
     cout << "customer ID: " << customerId << endl;
     cout << "bank: " << bank << endl;
     cout << "loan: " << loan << endl;
-    cout << "credit score: " << creditScore << endl;
 }
