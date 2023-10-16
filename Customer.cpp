@@ -9,7 +9,7 @@ using namespace std;
 Customer::Customer() {
     customerId = 0;
     bank = "";
-    // loan = 0;
+    loan = 0;
     creditScore = 0;
     account = nullptr;
 }
@@ -18,8 +18,7 @@ Customer::Customer(string name) {
     this->name = name;
     customerId = 0;
     bank = "";
-    // loan = 0;
-    creditScore = 0;
+    loan = 0;
     account = nullptr;
 }
 
@@ -31,7 +30,6 @@ Customer::Customer(int customerId) {
     this->customerId = customerId;
     bank = "";
     loan = 0;
-    creditScore = 0;
     account = nullptr;
 }
 
@@ -58,10 +56,6 @@ string Customer::getBank() const {
 
 void Customer::setBank(string bank) {
     this->bank = bank;
-}
-
-float Customer::getCreditScore() const {
-    return creditScore;
 }
 
 float Customer::getLoan(float loanAmount) const {

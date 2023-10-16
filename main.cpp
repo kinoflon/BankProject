@@ -10,80 +10,6 @@
 #include "Account.h"
 #include <vector>
 
-// using namespace std;
-
-// int main() {
-//     // Create a person and ask for their name
-//     string name;
-//     cout << "Enter your name: ";
-//     getline(cin, name);
-
-//     Person person(name);
-
-//     cout << "Welcome, " << person.getName() << "!" << endl;
-
-//     // Let the person pick a bank
-//     cout << "Choose a bank: " << endl;
-//     cout << "1. CommBank" << endl;
-//     cout << "2. ANZ" << endl;
-//     cout << "3. NAB" << endl;
-//     cout << "4. Westpac" << endl;
-
-//     int bankChoice;
-//     cout << "Enter the number of the bank you want to choose: ";
-//     cin >> bankChoice;
-
-//     Bank* selectedBank;
-
-//     if (bankChoice == 1) {
-//         selectedBank = new CommBank();
-//     } else if (bankChoice == 2) {
-//         selectedBank = new ANZ();
-//     } else if (bankChoice == 3) {
-//         selectedBank = new NAB();
-//     } else if (bankChoice == 4) {
-//         selectedBank = new Westpac();
-//     } else {
-//         cout << "Invalid bank choice. Exiting." << endl;
-//         return 1;
-//     }
-
-//     // Create a customer
-//     Customer customer(person.getName());
-//     customer.setBank(selectedBank->getBank());
-
-//     cout << "You are now a customer of " << customer.getBank() << endl;
-
-//     // Take out a loan
-//     float loanAmount;
-//     cout << "Enter the loan amount you want to take out: ";
-//     cin >> loanAmount;
-
-//     cout << "You have taken a loan of $" << customer.getLoan(loanAmount) << endl;
-
-//     // Transfer money from pay into the account
-//     float weeklyPay;
-//     cout << "Enter your weekly pay: $";
-//     cin >> weeklyPay;
-
-//     Account account;
-//     account.setBalance(weeklyPay);
-
-//     cout << "Your account balance is $" << account.getBalance() << endl;
-
-//     // Display customer and account information
-//     customer.showInfo();
-//     account.showInfo();
-
-//     // Clean up allocated memory
-//     delete selectedBank;
-
-//     return 0;
-// }
-
-
-
-
 using namespace std;
 
 int main() {
@@ -105,27 +31,36 @@ int main() {
     switch (bankChoice) {
         case 1:
             bankName = "NAB";
+            NAB* selectedBank = new NAB();
+
             break;
         case 2:
             bankName = "ANZ";
+            ANZ* selectedBank = new ANZ();
             break;
         case 3:
             bankName = "CommBank";
+            CommBank* selectedBank = new CommBank();
             break;
         case 4:
             bankName = "Westpac";
+            Westpac* selectedBank = new Westpac();
             break;
         default:
             cout << "Invalid bank choice. Exiting the program." << endl;
             return 1;
     }
 
+    selectedBank->
+    
+
     while (true) {
         cout << "Banking System for " << bankName << endl;
         cout << "1. Create Customer Account" << endl;
         cout << "2. Perform Transaction" << endl;
         cout << "3. Display Customer Information" << endl;
-        cout << "4. Exit" << endl;
+        cout << "4. Loan Banking" << endl;
+        cout << "5. Exit" << endl;
         cout << "Enter your choice: ";
 
         int choice;
@@ -137,6 +72,8 @@ int main() {
                 string name;
                 cin.ignore();
                 getline(cin, name);
+
+                //get wage
 
                 // Ask the user for a 3-digit customer ID
                 int customerID;
@@ -232,8 +169,31 @@ int main() {
 
                 break;
             }
+            case 4: {
+                cout << "1. Take Out A Loan" << endl;
+                cout << "2. Pay Off A Loan" << endl;
+                cout << "Enter operation type (1/2): ";
+                int operationType;
+                cin >> operationType;
 
-            case 4:
+                if (operationType == 1) {
+                    cout << "Enter Loan Amount: ";
+                    float loan;
+                    cin >> loan;
+                    customer->getAccount()->deposit(amount);
+                } else if (operationType == 2) {
+                    cout << "Enter Amount To Pay Off: ";
+                    float loanMinus;
+                    cin >> loanMinus;
+                    customer->getAccount()->withdraw(amount);
+                } else {
+                    cout << "Invalid operation type." << endl;
+                }
+
+                break;
+            }
+                
+            case 5:
                 cout << "Exiting the program." << endl;
                 return 0;
             default:
