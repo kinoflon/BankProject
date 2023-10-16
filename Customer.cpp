@@ -81,5 +81,4 @@ void Customer::showInfo() const {
     cout << "customer ID: " << customerId << endl;
     cout << "bank: " << bank << endl;
     cout << "loan: " << loan << endl;
-    cout << "credit score: " << creditScore << endl;
 }
