@@ -1,35 +1,43 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include "Customer.h"
 #include <string>
+using namespace std;
 
-class Account {
-public:
-    Account();
-    Account(float balance);
 
-    int getAccountNum();
-    void setAccountNum(int accountNumber);
+class Account : public Customer {
 
-    int getBSB();
-    void setBSB(int bsb);
+    protected:
+        int accountNumber;
+        int bsb;
+        float balance;
+        float pay;
 
-    float getBalance();
-    void setBalance(float balance);
+        float loanOwed;
 
-    float getPay();
-    void setPay(float pay);
+    public:
 
-    void showInfo();
+        Account();
+        Account(float balance);
 
-    void setLoan(float newLoan);
+        int getAccountNum();
+        void setAccountNum(int accountNumber);
 
-private:
-    int accountNumber;
-    int bsb;
-    float balance;
-    float pay;
-    float loan;
+        int getBSB();
+        void setBSB(int bsb);
+
+        float getBalance();
+        void setBalance(float balance);
+
+        float getPay();
+        void setPay(float pay);
+
+        void showInfo();
+
+        void setLoan(float newLoan);
+
 };
+
 
 #endif
