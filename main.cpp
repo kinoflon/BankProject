@@ -17,9 +17,10 @@ int main() {
     cout << "Enter your name: ";
     getline(cin, name);
 
-    Person person(name);
+    Account* person;
+    person->setName(name);
 
-    cout << "Welcome, " << person.getName() << "!" << endl;
+    cout << "Welcome, " << person->getName() << "!" << endl;
 
     // Let the person pick a bank
     cout << "Choose a bank: " << endl;
@@ -48,31 +49,43 @@ int main() {
     }
 
     // Create a customer
-    Customer customer(person.getName());
-    customer.setBank(selectedBank->getBank());
+    string test = person->getName();
 
-    cout << "You are now a customer of " << customer.getBank() << endl;
+
+    person->setName(test);
+    person->setBank(selectedBank->getBank());
+
+    cout << "You are now a customer of " << person->getBank() << endl;
+
+    //From Callum.
+    //Give options on what they should do
+    //for example, open new account, accumulate loan, generate pay (ask for wage). 
+    // similar to the commented code below
+    // also have a choice for them to.
+    // all the only thing different when accumulating the loan is the interest rate so do a switch statement that uses the bankchoice
+    // to differentiate the bloody things
+
+
 
     // Take out a loan
     float loanAmount;
     cout << "Enter the loan amount you want to take out: ";
     cin >> loanAmount;
 
-    cout << "You have taken a loan of $" << customer.getLoan(loanAmount) << endl;
+    cout << "You have taken a loan of $" << person->getLoan(loanAmount) << endl;
 
     // Transfer money from pay into the account
     float weeklyPay;
     cout << "Enter your weekly pay: $";
     cin >> weeklyPay;
 
-    Account account;
-    account.setBalance(weeklyPay);
+    person->setBalance(weeklyPay);
 
-    cout << "Your account balance is $" << account.getBalance() << endl;
+    cout << "Your account balance is $" << person->getBalance() << endl;
 
     // Display customer and account information
-    customer.showInfo();
-    account.showInfo();
+    person->Customer::showInfo();
+    person->Account::showInfo();
 
     // Clean up allocated memory
     delete selectedBank;

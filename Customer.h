@@ -10,7 +10,6 @@ class Customer : public Person {
     protected:
         int customerId;
         string bank;
-        float creditScore;
         Customer* account;
     private:
 
