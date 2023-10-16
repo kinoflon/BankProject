@@ -20,6 +20,7 @@ class Customer : public Person {
         Customer(string name);
         Customer(int customerId);
         
+        void setCustomerID(int id); // New method to set customer ID
         void setAccount(Customer* account);
 
         void showInfo() const;

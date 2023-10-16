@@ -36,6 +36,15 @@ Customer::Customer(int customerId) {
     account = nullptr;
 }
 
+void Customer::setCustomerID(int id) {
+    // Ensure the customer ID is a 3-digit number
+    if (id >= 100 && id <= 999) {
+        customerId = id;
+    } else {
+        cout << "Invalid customer ID. It should be a 3-digit number." << endl;
+    }
+}
+
 int Customer::getID() const {
     return customerId;
 }
