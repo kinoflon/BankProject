@@ -1,21 +1,22 @@
 #include "Account.h"
-
 #include <iostream>
-#include <string>
-
-using namespace std;
+#include <cstdlib>
+#include <ctime>
 
 Account::Account() {
-    accountNumber = rand() %99999999+10000000;
-    bsb = rand() % 99999+10000;
+    accountNumber = rand() % 90000000 + 10000000;
+    bsb = rand() % 900000 + 100000;
     balance = 0;
-    pay = wage/52;
+    pay = 0; // Initialize pay
+    loan = 0; // Initialize loan
 }
+
 Account::Account(float balance) {
-    accountNumber = rand() %99999999+10000000;
-    bsb = rand() % 99999+10000;
+    accountNumber = rand() % 90000000 + 10000000;
+    bsb = rand() % 900000 + 100000;
     this->balance = balance;
-    pay = wage/52;
+    pay = 0; // Initialize pay
+    loan = 0; // Initialize loan
 }
 
 int Account::getAccountNum() {
@@ -51,16 +52,12 @@ void Account::setPay(float pay) {
 }
 
 void Account::showInfo() {
-    cout << "Account info:" << endl;
-    cout << "name: " << name << endl;
-    cout << "wage: " << wage << endl;
-    cout << "customer ID: " << customerId << endl;
-    cout << "bank: " << bank << endl;
-    cout << "loan: " << loan << endl;
-    cout << "account number: " << accountNumber << endl;
-    cout << "bsb: " << bsb << endl;
-    cout << "balance: " << balance << endl;
-    cout << "pay: " << pay << endl;
+    std::cout << "Account info:" << std::endl;
+    std::cout << "account number: " << accountNumber << std::endl;
+    std::cout << "bsb: " << bsb << std::endl;
+    std::cout << "balance: $" << balance << std::endl;
+    std::cout << "pay: $" << pay << std::endl;
+    std::cout << "loan: $" << loan << std::endl;
 }
 
 void Account::setLoan(float newLoan) {
