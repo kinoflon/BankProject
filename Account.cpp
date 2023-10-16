@@ -6,14 +6,14 @@
 using namespace std;
 
 Account::Account() {
-    accountNumber;
-    bsb;
+    accountNumber = rand() %99999999+10000000;
+    bsb = rand() % 99999+10000;
     balance = 0;
     pay = wage/52;
 }
 Account::Account(float balance) {
-    accountNumber;
-    bsb;
+    accountNumber = rand() %99999999+10000000;
+    bsb = rand() % 99999+10000;
     this->balance = balance;
     pay = wage/52;
 }
