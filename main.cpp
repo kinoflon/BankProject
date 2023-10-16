@@ -28,30 +28,32 @@ int main() {
 
     string bankName;
 
+    Bank* selectedBank;
+
     switch (bankChoice) {
         case 1:
             bankName = "NAB";
-            NAB* selectedBank = new NAB();
-
             break;
         case 2:
             bankName = "ANZ";
-            ANZ* selectedBank = new ANZ();
             break;
         case 3:
             bankName = "CommBank";
-            CommBank* selectedBank = new CommBank();
             break;
         case 4:
             bankName = "Westpac";
-            Westpac* selectedBank = new Westpac();
             break;
         default:
             cout << "Invalid bank choice. Exiting the program." << endl;
             return 1;
     }
 
-    selectedBank->
+    NAB* test;
+    selectedBank = test;
+
+    Account** test2 = new Account*();
+
+    test->addAccount(test2);
     
 
     while (true) {
@@ -73,7 +75,12 @@ int main() {
                 cin.ignore();
                 getline(cin, name);
 
-                //get wage
+                //get wage - lys does
+
+                cout << "Enter customer wage: ";
+                float wage;
+                cin.ignore();
+                getline(cin, wage);
 
                 // Ask the user for a 3-digit customer ID
                 int customerID;
@@ -93,11 +100,11 @@ int main() {
                 } else {
                     Customer customer(name);
                     customer.setCustomerID(customerID);
+                    customer.setWage(wage);
                     customer.setBank(bankName);
                     
                     // Create a dynamic Account object and pass its pointer to setAccount
-                    Account* account = new Account();
-                    customer.setAccount(account);
+                    customer.setAccount(test2[0]);
                     
                     customers.push_back(customer);
                     cout << "Customer account created successfully." << endl;
@@ -156,9 +163,9 @@ int main() {
                         customer.showInfo();
                         
                         // Check if the customer has an associated account
-                        Account* account = customer.getAccount();
-                        if (account != nullptr) {
-                            account->showInfo();
+                        test2[0] = customer.getAccount();
+                        if (test2[0] != nullptr) {
+                            test2[0]->showInfo();
                         } else {
                             cout << "This customer does not have an associated account." << endl;
                         }
@@ -177,15 +184,26 @@ int main() {
                 cin >> operationType;
 
                 if (operationType == 1) {
+                    int accountNumber;
+                    cout << "Account Number: " << endl;
+                    cin >> accountNumber;
+                    accountNumber--;
+
                     cout << "Enter Loan Amount: ";
                     float loan;
                     cin >> loan;
-                    customer->getAccount()->deposit(amount);
+                    test->generateLoan(loan, accountNumber);
+                    
                 } else if (operationType == 2) {
+                    int accountNumber;
+                    cout << "Account Number: " << endl;
+                    cin >> accountNumber;
+                    accountNumber--;
+
                     cout << "Enter Amount To Pay Off: ";
                     float loanMinus;
                     cin >> loanMinus;
-                    customer->getAccount()->withdraw(amount);
+                    test->updateLoan(loanMinus, accountNumber);
                 } else {
                     cout << "Invalid operation type." << endl;
                 }
