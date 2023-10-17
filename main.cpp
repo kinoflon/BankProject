@@ -70,47 +70,47 @@ int main() {
 
       switch (choice) {
         case 1: {
-          cout << "Enter customer name: ";
-          string name;
-          cin.ignore();
-          getline(cin, name);
+            cout << "Enter customer name: ";
+            string name;
+            cin.ignore();
+            getline(cin, name);
 
-          cout << "Enter customer wage: ";
-          float wage;
-          cin.ignore();
-          getline(cin, wage);
+            cout << "Enter customer wage: ";
+            float wage;
+            cin >> wage; // FLOAT HERE BRUTHA
 
-          // Ask the user for a 3-digit customer ID
-          int customerID;
-          cout << "Enter a 3-digit customer ID: ";
-          cin >> customerID;
+            // Ask the user for a 3-digit customer ID
+            int customerID;
+            cout << "Enter a 3-digit customer ID: ";
+            cin >> customerID;
 
-          bool customerExists = false;
-          for (auto& customer : customers) {
-            if (customer.getName() == name && customer.getBank() == bankName) {
-              customerExists = true;
-              break;
+            bool customerExists = false;
+            for (auto& customer : customers) {
+                if (customer.getName() == name && customer.getBank() == bankName) {
+                    customerExists = true;
+                    break;
+                }
             }
-          }
 
-          if (customerExists) {
-            cout << "A customer with the same name already exists in "
-                 << bankName << "." << endl;
-          } else {
-            Customer customer(name);
-            customer.setCustomerID(customerID);
-            customer.setWage(wage);
-            customer.setBank(bankName);
+            if (customerExists) {
+                cout << "A customer with the same name already exists in "
+                    << bankName << "." << endl;
+            } else {
+                Customer customer(name);
+                customer.setCustomerID(customerID);
+                customer.setWage(wage);
+                customer.setBank(bankName);
 
-            // Create a dynamic Account object and pass its pointer to
-            // setAccount
-            customer.setAccount(account[0]);
+                // Create a dynamic Account object and pass its pointer to
+                // setAccount
+                customer.setAccount(account[0]);
 
-            customers.push_back(customer);
-            cout << "Customer account created successfully." << endl;
-          }
-          break;
+                customers.push_back(customer);
+                cout << "Customer account created successfully." << endl;
+            }
+            break;
         }
+
         case 2: {
           cout << "Enter customer ID: ";
           int customerId;
@@ -250,8 +250,7 @@ int main() {
 
           cout << "Enter customer wage: ";
           float wage;
-          cin.ignore();
-          getline(cin, wage);
+          cin >> wage; // Use cin to directly read the float value
 
           // Ask the user for a 3-digit customer ID
           int customerID;
@@ -260,30 +259,31 @@ int main() {
 
           bool customerExists = false;
           for (auto& customer : customers) {
-            if (customer.getName() == name && customer.getBank() == bankName) {
-              customerExists = true;
-              break;
-            }
+              if (customer.getName() == name && customer.getBank() == bankName) {
+                  customerExists = true;
+                  break;
+              }
           }
 
           if (customerExists) {
-            cout << "A customer with the same name already exists in "
-                 << bankName << "." << endl;
+              cout << "A customer with the same name already exists in "
+                  << bankName << "." << endl;
           } else {
-            Customer customer(name);
-            customer.setCustomerID(customerID);
-            customer.setWage(wage);
-            customer.setBank(bankName);
+              Customer customer(name);
+              customer.setCustomerID(customerID);
+              customer.setWage(wage);
+              customer.setBank(bankName);
 
-            // Create a dynamic Account object and pass its pointer to
-            // setAccount
-            customer.setAccount(account[0]);
+              // Create a dynamic Account object and pass its pointer to
+              // setAccount
+              customer.setAccount(account[0]);
 
-            customers.push_back(customer);
-            cout << "Customer account created successfully." << endl;
+              customers.push_back(customer);
+              cout << "Customer account created successfully." << endl;
           }
           break;
-        }
+      }
+
         case 2: {
           cout << "Enter customer ID: ";
           int customerId;
@@ -422,8 +422,7 @@ int main() {
 
           cout << "Enter customer wage: ";
           float wage;
-          cin.ignore();
-          getline(cin, wage);
+          cin >> wage; // Use cin to directly read the float value
 
           // Ask the user for a 3-digit customer ID
           int customerID;
@@ -432,30 +431,31 @@ int main() {
 
           bool customerExists = false;
           for (auto& customer : customers) {
-            if (customer.getName() == name && customer.getBank() == bankName) {
-              customerExists = true;
-              break;
-            }
+              if (customer.getName() == name && customer.getBank() == bankName) {
+                  customerExists = true;
+                  break;
+              }
           }
 
           if (customerExists) {
-            cout << "A customer with the same name already exists in "
-                 << bankName << "." << endl;
+              cout << "A customer with the same name already exists in "
+                  << bankName << "." << endl;
           } else {
-            Customer customer(name);
-            customer.setCustomerID(customerID);
-            customer.setWage(wage);
-            customer.setBank(bankName);
+              Customer customer(name);
+              customer.setCustomerID(customerID);
+              customer.setWage(wage);
+              customer.setBank(bankName);
 
-            // Create a dynamic Account object and pass its pointer to
-            // setAccount
-            customer.setAccount(account[0]);
+              // Create a dynamic Account object and pass its pointer to
+              // setAccount
+              customer.setAccount(account[0]);
 
-            customers.push_back(customer);
-            cout << "Customer account created successfully." << endl;
+              customers.push_back(customer);
+              cout << "Customer account created successfully." << endl;
           }
           break;
-        }
+      }
+
         case 2: {
           cout << "Enter customer ID: ";
           int customerId;
@@ -594,8 +594,7 @@ int main() {
 
           cout << "Enter customer wage: ";
           float wage;
-          cin.ignore();
-          getline(cin, wage);
+          cin >> wage; // Use cin to directly read the float value
 
           // Ask the user for a 3-digit customer ID
           int customerID;
@@ -604,30 +603,31 @@ int main() {
 
           bool customerExists = false;
           for (auto& customer : customers) {
-            if (customer.getName() == name && customer.getBank() == bankName) {
-              customerExists = true;
-              break;
-            }
+              if (customer.getName() == name && customer.getBank() == bankName) {
+                  customerExists = true;
+                  break;
+              }
           }
 
           if (customerExists) {
-            cout << "A customer with the same name already exists in "
-                 << bankName << "." << endl;
+              cout << "A customer with the same name already exists in "
+                  << bankName << "." << endl;
           } else {
-            Customer customer(name);
-            customer.setCustomerID(customerID);
-            customer.setWage(wage);
-            customer.setBank(bankName);
+              Customer customer(name);
+              customer.setCustomerID(customerID);
+              customer.setWage(wage);
+              customer.setBank(bankName);
 
-            // Create a dynamic Account object and pass its pointer to
-            // setAccount
-            customer.setAccount(account[0]);
+              // Create a dynamic Account object and pass its pointer to
+              // setAccount
+              customer.setAccount(account[0]);
 
-            customers.push_back(customer);
-            cout << "Customer account created successfully." << endl;
+              customers.push_back(customer);
+              cout << "Customer account created successfully." << endl;
           }
           break;
-        }
+      }
+
         case 2: {
           cout << "Enter customer ID: ";
           int customerId;
