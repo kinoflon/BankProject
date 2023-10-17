@@ -6,18 +6,21 @@
 
 using namespace std;
 
+// Constructor for ANZ without capacity parameter
 ANZ::ANZ() {
     name = "ANZ";
     newAccount = new Account*[numAccounts];
     capacity = 0;
 }
 
+// Constructor for ANZ with capacity parameter
 ANZ::ANZ(float capacity) {
     name = "ANZ";
     newAccount = new Account*[numAccounts];
     this->capacity = capacity;
 }
 
+// Method to generate a customer's pay
 void ANZ::generatePay(int accountNumber) {
 
     int whichAccount = accountNumber;
@@ -41,6 +44,7 @@ void ANZ::generatePay(int accountNumber) {
     }
 }
 
+// Method to add an account to ANZ
 void ANZ::addAccount(Account** extraAccount) {
 
     int temp = numAccounts;
@@ -51,6 +55,7 @@ void ANZ::addAccount(Account** extraAccount) {
     newAccount[numAccounts]->getBalance();
 }
 
+// Destructor for ANZ, responsible for memory cleanup
 ANZ::~ANZ() {
     for (int i = 0; i < numAccounts; i++) {
         delete newAccount[i];

@@ -6,19 +6,19 @@ using namespace std;
 
 class Person {
 protected:
-    string name;
-    float wage;
+    string name;  // Name of the person
+    float wage;   // Wage of the person
 
 public:
-    Person();
-    Person(string name, float wage);
+    Person(); // Default constructor
+    Person(string name, float wage); // Parameterized constructor
 
-    void showInfo() const;
+    void showInfo() const; // Display person's information
 
-    string getName() const;
-    float getWage() const;
-    void setName(string name);
-    void setWage(float wage);
+    string getName() const; // Getter for the person's name
+    float getWage() const; // Getter for the person's wage
+    void setName(string name); // Setter for the person's name
+    void setWage(float wage); // Setter for the person's wage
 };
 
 #endif
