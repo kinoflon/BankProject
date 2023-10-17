@@ -1,9 +1,6 @@
 #include "Bank.h"
-
+#include "Customer.h"
 #include <iostream>
-#include <string>
-
-using namespace std;
 
 Bank::Bank() {
     name = "";
@@ -21,14 +18,11 @@ string Bank::getBank() const {
     return name;
 }
 
-// void Bank::generatePay() {
-//     return;
-// }
-
-float Bank::generateLoan() {
-    return 0;
-}
-
-void Bank::updateLoan() {
-    return;
+void Bank::generatePay(Customer* customer) const {
+    if (customer != nullptr) {
+        float pay = customer->getWage() / 52;
+        cout << "Customer's pay: $" << pay << endl;
+    } else {
+        cout << "Customer not found." << endl;
+    }
 }

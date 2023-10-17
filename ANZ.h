@@ -9,23 +9,16 @@ class ANZ : public Bank {
 
     protected:
         Account** newAccount;
-        float interestRate;
     
     public:
         ANZ();
         ANZ(float capacity);
         
         void generatePay(int accountNumber);
-        float generateLoan(float loan, int accountNumber);
-        void updateLoan(float amount, int accountNumber);
-        void generateInterest(float weeklyPay);
 
         void addAccount(Account** extraAccount);
 
         ~ANZ();
-
-
 };
-
 
 #endif

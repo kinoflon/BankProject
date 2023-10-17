@@ -1,21 +1,21 @@
 #include "Account.h"
-
+#include "Customer.h"
 #include <iostream>
-#include <string>
-
+#include <cstdlib>
 using namespace std;
 
 Account::Account() {
-    accountNumber = rand() %90000000+10000000;
-    bsb = rand() % 900000+100000;
+    accountNumber = rand() % 90000000 + 10000000;
+    bsb = rand() % 900000 + 100000;
     balance = 0;
-    pay = wage/52;
+    pay = 0;
 }
-Account::Account(float balance) {
-    accountNumber = rand() %90000000+10000000;
-    bsb = rand() % 900000+100000;
+
+Account::Account(float balance, float wage) {
+    accountNumber = rand() % 90000000 + 10000000;
+    bsb = rand() % 900000 + 100000;
     this->balance = balance;
-    pay = wage/52;
+    pay = wage / 52;
 }
 
 int Account::getAccountNum() {
@@ -76,8 +76,4 @@ void Account::showInfo() {
     cout << "bsb: " << bsb << endl;
     cout << "balance: " << balance << endl;
     cout << "pay: " << pay << endl;
-}
-
-void Account::setLoan(float newLoan) {
-    loan = loan + newLoan;
 }

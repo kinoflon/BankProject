@@ -4,22 +4,19 @@
 #include <string>
 using namespace std;
 
+class Customer; // Forward declaration
+
 class Bank {
+protected:
+    string name;
+    float capacity;
+    int numAccounts;
 
-    protected:
-        string name;
-        float capacity;
-        int numAccounts;
-
-    public:
-        Bank();
-        Bank(string name);
-        string getBank() const;
-
-        // virtual void generatePay() = 0;
-        virtual void generatePay() const { return; }
-        virtual float generateLoan();
-        virtual void updateLoan();
+public:
+    Bank();
+    Bank(string name);
+    string getBank() const;
+    virtual void generatePay(Customer* customer) const;
 };
 
 #endif
